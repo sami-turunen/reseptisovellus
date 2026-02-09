@@ -38,7 +38,7 @@ cd backend
 4. Luo backend kansioon `.env`-tiedosto ja lisää sinne `MONGO_URI`-muuttuja muodossa:
 
 ```
-MONGO_URI=<Sinun_mongo_uri>
+MONGODB_URI=<Sinun_mongo_uri>
 ```
 
 5. Asenna backend riippuvuudet
@@ -72,4 +72,5 @@ npm run dev
 ```
 
 10. Siirry selaimessa osoitteeseen `http://localhost:5173` (tai vastaava jonka terminal-ikkuna näytti), sovellus on valmiina käyttöön.
+
 
