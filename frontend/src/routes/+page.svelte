@@ -97,7 +97,7 @@
 
   <hr />
 
-  <!-- Modal -->
+  <!-- Reseptin muokkaus ikkuna -->
    {#if modalVisible && editingRecipe}
   <div class="modal-overlay">
     <div class="modal-content">
@@ -123,13 +123,13 @@
       {#each recipes as recipe}
         <article class="recipe-card">
           <h3>{recipe.title}</h3>
-          <p>{recipe.ingredients || 'Ei ainesosia listattu.'}</p>
+          <p>Ainesosat: {recipe.ingredients || "Ei ainesosia"}</p>
           <p>Ohje: {recipe.instructions || 'Ei ohjeita listattu.'}</p>
           <button class="delete-btn" on:click={() => deleteRecipe(recipe._id)}>Poista resepti</button>
           <button on:click={() => openEditModal(recipe)}>Muokkaa resepti</button>
         </article>
       {:else}
-        <p>Reseptikirja on vielä tyhjä.</p>
+        <p>Ei reseptejä.</p>
       {/each}
     </div>
   {/if}

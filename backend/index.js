@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import "dotenv/config";
 import mongoose from "mongoose";
-import Receipt from "./models/Recipe.js";
+import Recipe from "./models/Recipe.js";
 
 const app = express();
 app.use(express.json());
@@ -18,28 +18,28 @@ mongoose
   });
 
 app.get("/api/recipes", async (req, res) => {
-  const receipts = await Receipt.find({});
-  res.json(receipts);
+  const recipes = await Recipe.find({});
+  res.json(recipes);
 });
 
 app.post("/api/recipes", async (req, res) => {
-  const receipt = new Receipt(req.body);
-  const savedReceipt = await receipt.save();
-  res.json(savedReceipt);
+  const recipe = new Recipe(req.body);
+  const savedRecipe = await recipe.save();
+  res.json(savedRecipe);
 });
 
 app.delete("/api/recipes/:id", async (req, res) => {
-  const deletedReceipt = await Receipt.findByIdAndDelete(req.params.id);
-  res.json(deletedReceipt);
+  const deletedRecipe = await Recipe.findByIdAndDelete(req.params.id);
+  res.json(deletedRecipe);
 });
 
 app.put("/api/recipes/:id", async (req, res) => {
-  const updatedReceipt = await Receipt.findByIdAndUpdate(
+  const updatedRecipe = await Recipe.findByIdAndUpdate(
     req.params.id,
     req.body,
     { new: true },
   );
-  res.json(updatedReceipt);
+  res.json(updatedRecipe);
 });
 
 const PORT = 5000;
